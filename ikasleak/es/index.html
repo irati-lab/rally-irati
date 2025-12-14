@@ -1,402 +1,186 @@
-<!DOCTYPE HTML>
-<html>
+<!DOCTYPE html>
+<html lang="es">
 <head>
-  <meta charset="UTF-8"/>
-  <title>rally-irati-ikasleak</title>
-  <style>
-    body {
-      background: #f7f7f7;
-      color: #3c4043;
-    }
-    pre {
-      font-family: ui-monospace, monospace;
-      font-size: 12px;
-      white-space: pre-wrap;
-    }
-    .codehilite {
-      margin: 20px;
-    }
-  </style>
-  <style>.codehilite .vm { color: #7d37bd }
-.codehilite .c { color: #757575 }
-.codehilite .sx { color: #3a8a3e }
-.codehilite .sh { color: #1b5e20 }
-.codehilite .ss { color: #3a8a3e }
-.codehilite .s1 { color: #3a8a3e }
-.codehilite .gi { color: #1b5e20 }
-.codehilite .pm { color: #3c4043 }
-.codehilite .cpf { color: #3a8a3e }
-.codehilite .s2 { color: #3a8a3e }
-.codehilite .err { color: #3c4043 }
-.codehilite .mo { color: #2673f2 }
-.codehilite .c1 { color: #757575 }
-.codehilite .esc { color: #3c4043 }
-.codehilite .ne { color: #4527a0 }
-.codehilite .cm { color: #757575 }
-.codehilite .ges { color: #e65100 }
-.codehilite .nx { color: #3c4043 }
-.codehilite .m { color: #2673f2 }
-.codehilite .ld { color: #2673f2 }
-.codehilite .k { color: #9c27b0 }
-.codehilite .kd { color: #9c27b0 }
-.codehilite .w { color: #3c4043 }
-.codehilite .na { color: #e10c81 }
-.codehilite .cs { color: #616161 }
-.codehilite .gp { color: #00838f }
-.codehilite .nd { color: #9c27b0 }
-.codehilite .sr { color: #1b5e20 }
-.codehilite .nv { color: #3c4043 }
-.codehilite .sa { color: #3a8a3e }
-.codehilite .p { color: #3c4043 }
-.codehilite .gs { color: #e65100 }
-.codehilite .sd { color: #1b5e20 }
-.codehilite .bp { color: #4527a0 }
-.codehilite .mb { color: #2673f2 }
-.codehilite .ow { color: #9c27b0 }
-.codehilite .go { color: #616161 }
-.codehilite .cd { color: #006064 }
-.codehilite .fm { color: #7d37bd }
-.codehilite .ni { color: #2673f2 }
-.codehilite .py { color: #00838f }
-.codehilite .ge { color: #7d37bd }
-.codehilite .sc { color: #2673f2 }
-.codehilite .x { color: #3c4043 }
-.codehilite .nb { color: #9c27b0 }
-.codehilite .nf { color: #3f51b5 }
-.codehilite .o { color: #3c4043 }
-.codehilite .g { color: #3c4043 }
-.codehilite .gr { color: #e71c0d }
-.codehilite .il { color: #2673f2 }
-.codehilite .dl { color: #3a8a3e }
-.codehilite .si { color: #3c4043 }
-.codehilite .no { color: #4527a0 }
-.codehilite .nn { color: #3c4043 }
-.codehilite .mf { color: #2673f2 }
-.codehilite .l { color: #2673f2 }
-.codehilite .kp { color: #9c27b0 }
-.codehilite .kn { color: #9c27b0 }
-.codehilite .mh { color: #2673f2 }
-.codehilite .mi { color: #2673f2 }
-.codehilite .vi { color: #00838f }
-.codehilite .gh { color: #9c27b0 }
-.codehilite .vg { color: #7d37bd }
-.codehilite .kc { color: #9c27b0 }
-.codehilite .ga { color: #000000 }
-.codehilite .s { color: #3a8a3e }
-.codehilite .kr { color: #9c27b0 }
-.codehilite .gd { color: #757575 }
-.codehilite .kt { color: #9c27b0 }
-.codehilite .gu { color: #9c27b0 }
-.codehilite .sb { color: #2673f2 }
-.codehilite .nc { color: #006064 }
-.codehilite .nt { color: #9c27b0 }
-.codehilite .cp { color: #795548 }
-.codehilite .vc { color: #00838f }
-.codehilite .ch { color: #616161 }
-.codehilite .nl { color: #7d37bd }
-.codehilite .se { color: #2673f2 }
-.codehilite .n { color: #3c4043 }
-.codehilite .gt { color: #bf360c }
-.codehilite .hll {
-    display: block;
-    background-color: rgba(254, 239, 195, 1.000);
-}</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cine y Dinámica</title>
+    <!-- Tailwind CSS para diseño rápido y moderno -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Fuentes: Una tipo "Cine" (Bebas Neue) y otra técnica (Roboto Mono) -->
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet">
+    
+    <style>
+        body {
+            background-color: #111;
+            color: white;
+            font-family: 'Segoe UI', sans-serif;
+        }
+        .title-font {
+            font-family: 'Bebas Neue', sans-serif;
+            letter-spacing: 2px;
+        }
+        .mono-font {
+            font-family: 'Roboto Mono', monospace;
+        }
+        /* Efecto Neón suave */
+        .neon-blue { text-shadow: 0 0 10px rgba(56, 189, 248, 0.5); }
+        .neon-red { text-shadow: 0 0 10px rgba(248, 113, 113, 0.5); }
+        
+        /* Inputs personalizados */
+        input[type="number"] {
+            background: rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.2);
+            color: white;
+            transition: all 0.3s ease;
+        }
+        input[type="number"]:focus {
+            background: rgba(255,255,255,0.2);
+            border-color: white;
+            outline: none;
+        }
+    </style>
 </head>
-<body>
-  <pre class="codehilite">
-<span class="cp" data-token="Comment.Preproc">&lt;!DOCTYPE html&gt;</span>
-&lt;<span class="nt" data-token="Name.Tag">html</span> <span class="na" data-token="Name.Attribute">lang</span><span class="o" data-token="Operator">=</span><span class="s" data-token="Literal.String">&quot;es&quot;</span>&gt;
-&lt;<span class="nt" data-token="Name.Tag">head</span>&gt;
-    &lt;<span class="nt" data-token="Name.Tag">meta</span> <span class="na" data-token="Name.Attribute">charset</span><span class="o" data-token="Operator">=</span><span class="s" data-token="Literal.String">&quot;UTF-8&quot;</span>&gt;
-    &lt;<span class="nt" data-token="Name.Tag">meta</span> <span class="na" data-token="Name.Attribute">name</span><span class="o" data-token="Operator">=</span><span class="s" data-token="Literal.String">&quot;viewport&quot;</span> <span class="na" data-token="Name.Attribute">content</span><span class="o" data-token="Operator">=</span><span class="s" data-token="Literal.String">&quot;width=device-width, initial-scale=1.0&quot;</span>&gt;
-    &lt;<span class="nt" data-token="Name.Tag">title</span>&gt;INFOGRAFÍA: PROJECT RALLY IRATI&lt;/<span class="nt" data-token="Name.Tag">title</span>&gt;
-    
-    &lt;<span class="nt" data-token="Name.Tag">script</span> <span class="na" data-token="Name.Attribute">src</span><span class="o" data-token="Operator">=</span><span class="s" data-token="Literal.String">&quot;https://cdn.tailwindcss.com&quot;</span>&gt;&lt;/<span class="nt" data-token="Name.Tag">script</span>&gt;
-    
-    &lt;<span class="nt" data-token="Name.Tag">script</span> <span class="na" data-token="Name.Attribute">src</span><span class="o" data-token="Operator">=</span><span class="s" data-token="Literal.String">&quot;https://cdn.jsdelivr.net/npm/chart.js&quot;</span>&gt;&lt;/<span class="nt" data-token="Name.Tag">script</span>&gt;
-    
-    &lt;<span class="nt" data-token="Name.Tag">link</span> <span class="na" data-token="Name.Attribute">rel</span><span class="o" data-token="Operator">=</span><span class="s" data-token="Literal.String">&quot;stylesheet&quot;</span> <span class="na" data-token="Name.Attribute">href</span><span class="o" data-token="Operator">=</span><span class="s" data-token="Literal.String">&quot;https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css&quot;</span>&gt;
-    
-    &lt;<span class="nt" data-token="Name.Tag">link</span> <span class="na" data-token="Name.Attribute">href</span><span class="o" data-token="Operator">=</span><span class="s" data-token="Literal.String">&quot;https://fonts.googleapis.com/css2?family=Teko:wght@300;500;700&amp;family=Rajdhani:wght@400;600;700&amp;display=swap&quot;</span> <span class="na" data-token="Name.Attribute">rel</span><span class="o" data-token="Operator">=</span><span class="s" data-token="Literal.String">&quot;stylesheet&quot;</span>&gt;
+<body class="min-h-screen flex flex-col">
 
-    &lt;<span class="nt" data-token="Name.Tag">script</span>&gt;
-        tailwind.config <span class="o" data-token="Operator">=</span> {
-            theme<span class="o" data-token="Operator">:</span> {
-                extend<span class="o" data-token="Operator">:</span> {
-                    fontFamily<span class="o" data-token="Operator">:</span> {
-                        <span class="s1" data-token="Literal.String.Single">&apos;head&apos;</span><span class="o" data-token="Operator">:</span> [<span class="s1" data-token="Literal.String.Single">&apos;&quot;Teko&quot;&apos;</span>, <span class="s1" data-token="Literal.String.Single">&apos;sans-serif&apos;</span>],
-                        <span class="s1" data-token="Literal.String.Single">&apos;body&apos;</span><span class="o" data-token="Operator">:</span> [<span class="s1" data-token="Literal.String.Single">&apos;&quot;Rajdhani&quot;&apos;</span>, <span class="s1" data-token="Literal.String.Single">&apos;sans-serif&apos;</span>],
-                    },
-                    colors<span class="o" data-token="Operator">:</span> {
-                        <span class="s1" data-token="Literal.String.Single">&apos;dark-bg&apos;</span><span class="o" data-token="Operator">:</span> <span class="s1" data-token="Literal.String.Single">&apos;#0B0E14&apos;</span>,
-                        <span class="s1" data-token="Literal.String.Single">&apos;card-bg&apos;</span><span class="o" data-token="Operator">:</span> <span class="s1" data-token="Literal.String.Single">&apos;#151B25&apos;</span>,
-                        <span class="s1" data-token="Literal.String.Single">&apos;neon-orange&apos;</span><span class="o" data-token="Operator">:</span> <span class="s1" data-token="Literal.String.Single">&apos;#FF5E00&apos;</span>,
-                        <span class="s1" data-token="Literal.String.Single">&apos;neon-cyan&apos;</span><span class="o" data-token="Operator">:</span> <span class="s1" data-token="Literal.String.Single">&apos;#00F0FF&apos;</span>,
-                        <span class="s1" data-token="Literal.String.Single">&apos;neon-green&apos;</span><span class="o" data-token="Operator">:</span> <span class="s1" data-token="Literal.String.Single">&apos;#00FF9D&apos;</span>,
-                    },
-                    backgroundImage<span class="o" data-token="Operator">:</span> {
-                        <span class="s1" data-token="Literal.String.Single">&apos;grid-pattern&apos;</span><span class="o" data-token="Operator">:</span> <span class="s2" data-token="Literal.String.Double">&quot;url(&apos;data:image/svg+xml,%3Csvg width=\&quot;40\&quot; height=\&quot;40\&quot; viewBox=\&quot;0 0 40 40\&quot; xmlns=\&quot;http://www.w3.org/2000/svg\&quot;%3E%3Cg fill=\&quot;%231f2937\&quot; fill-opacity=\&quot;0.4\&quot; fill-rule=\&quot;evenodd\&quot;%3E%3Cpath d=\&quot;M0 40L40 0H20L0 20M40 40V20L20 40\&quot;/%3E%3C/g%3E%3C/svg%3E&apos;)&quot;</span>,
-                    }
-                }
-            }
-        }
-    &lt;/<span class="nt" data-token="Name.Tag">script</span>&gt;
+    <!-- CABECERA DE PELÍCULA -->
+    <header class="bg-black border-b border-gray-800 p-6 sticky top-0 z-50">
+        <div class="container mx-auto flex justify-between items-center">
+            <div class="flex items-center gap-3">
+                <!-- Icono Claqueta -->
+                <div class="bg-white text-black p-2 font-bold title-font text-xl rounded transform -rotate-12">
+                    🎬 SCENE 1
+                </div>
+                <h1 class="text-4xl title-font text-white">
+                    <span class="text-cyan-400 neon-blue">CINE</span> <span class="text-gray-500">&</span> <span class="text-red-500 neon-red">DINÁMICA</span>
+                </h1>
+            </div>
+            <div class="text-xs text-gray-500 mono-font hidden md:block">
+                PROYECTO FINAL // FÍSICA Y QUÍMICA
+            </div>
+        </div>
+    </header>
 
-    &lt;<span class="nt" data-token="Name.Tag">style</span>&gt;
-        <span class="c" data-token="Comment">/* Estilos personalizados para efectos extra */</span>
-        <span class="nn" data-token="Name.Namespace">body</span> {
-            <span class="k" data-token="Keyword">background-color</span>: <span class="mh" data-token="Literal.Number.Hex">#0B0E14</span>;
-            <span class="k" data-token="Keyword">color</span>: <span class="mh" data-token="Literal.Number.Hex">#E2E8F0</span>;
-            <span class="k" data-token="Keyword">overflow-x</span>: <span class="kc" data-token="Keyword.Constant">hidden</span>;
-        }
+    <main class="container mx-auto p-6 flex-grow">
 
-        .<span class="nn" data-token="Name.Namespace">clip-tech</span> {
-            <span class="k" data-token="Keyword">clip-path</span>: <span class="nf" data-token="Name.Function">polygon</span>(<span class="mi" data-token="Literal.Number.Integer">0</span> <span class="mi" data-token="Literal.Number.Integer">0</span>, <span class="mi" data-token="Literal.Number.Integer">100</span><span class="l" data-token="Literal">%</span> <span class="mi" data-token="Literal.Number.Integer">0</span>, <span class="mi" data-token="Literal.Number.Integer">100</span><span class="l" data-token="Literal">%</span> <span class="mi" data-token="Literal.Number.Integer">85</span><span class="l" data-token="Literal">%</span>, <span class="mi" data-token="Literal.Number.Integer">90</span><span class="l" data-token="Literal">%</span> <span class="mi" data-token="Literal.Number.Integer">100</span><span class="l" data-token="Literal">%</span>, <span class="mi" data-token="Literal.Number.Integer">0</span> <span class="mi" data-token="Literal.Number.Integer">100</span><span class="l" data-token="Literal">%</span>);
-        }
-
-        .<span class="nn" data-token="Name.Namespace">glow-text</span>:<span class="bp" data-token="Name.Builtin.Pseudo">hover</span> {
-            <span class="k" data-token="Keyword">text-shadow</span>: <span class="mi" data-token="Literal.Number.Integer">0</span> <span class="mi" data-token="Literal.Number.Integer">0</span> <span class="mi" data-token="Literal.Number.Integer">10</span><span class="l" data-token="Literal">px</span> <span class="nf" data-token="Name.Function">rgba</span>(<span class="mi" data-token="Literal.Number.Integer">0</span>, <span class="mi" data-token="Literal.Number.Integer">240</span>, <span class="mi" data-token="Literal.Number.Integer">255</span>, <span class="mf" data-token="Literal.Number.Float">0.7</span>);
-        }
-
-        .<span class="nn" data-token="Name.Namespace">chart-container</span> {
-            <span class="k" data-token="Keyword">position</span>: <span class="kc" data-token="Keyword.Constant">relative</span>;
-            <span class="k" data-token="Keyword">height</span>: <span class="mi" data-token="Literal.Number.Integer">300</span><span class="l" data-token="Literal">px</span>;
-            <span class="k" data-token="Keyword">width</span>: <span class="mi" data-token="Literal.Number.Integer">100</span><span class="l" data-token="Literal">%</span>;
-            <span class="k" data-token="Keyword">max-width</span>: <span class="mi" data-token="Literal.Number.Integer">500</span><span class="l" data-token="Literal">px</span>;
-            <span class="k" data-token="Keyword">margin</span>: <span class="mi" data-token="Literal.Number.Integer">0</span> <span class="kc" data-token="Keyword.Constant">auto</span>;
-        }
-
-        <span class="c" data-token="Comment">/* Animación de entrada */</span>
-        .<span class="nn" data-token="Name.Namespace">fade-in-up</span> {
-            <span class="k" data-token="Keyword">opacity</span>: <span class="mi" data-token="Literal.Number.Integer">0</span>;
-            <span class="k" data-token="Keyword">transform</span>: <span class="nf" data-token="Name.Function">translateY</span>(<span class="mi" data-token="Literal.Number.Integer">20</span><span class="l" data-token="Literal">px</span>);
-            <span class="k" data-token="Keyword">animation</span>: fadeInUp <span class="mf" data-token="Literal.Number.Float">0.8</span><span class="l" data-token="Literal">s</span> <span class="kc" data-token="Keyword.Constant">ease-out</span> <span class="kc" data-token="Keyword.Constant">forwards</span>;
-        }
-
-        @<span class="k" data-token="Keyword">keyframes</span> <span class="nn" data-token="Name.Namespace">fadeInUp</span> {
-            <span class="nn" data-token="Name.Namespace">to</span> {
-                <span class="k" data-token="Keyword">opacity</span>: <span class="mi" data-token="Literal.Number.Integer">1</span>;
-                <span class="k" data-token="Keyword">transform</span>: <span class="nf" data-token="Name.Function">translateY</span>(<span class="mi" data-token="Literal.Number.Integer">0</span>);
-            }
-        }
-
-        .<span class="nn" data-token="Name.Namespace">delay-100</span> { <span class="k" data-token="Keyword">animation-delay</span>: <span class="mf" data-token="Literal.Number.Float">0.1</span><span class="l" data-token="Literal">s</span>; }
-        .<span class="nn" data-token="Name.Namespace">delay-200</span> { <span class="k" data-token="Keyword">animation-delay</span>: <span class="mf" data-token="Literal.Number.Float">0.2</span><span class="l" data-token="Literal">s</span>; }
-        .<span class="nn" data-token="Name.Namespace">delay-300</span> { <span class="k" data-token="Keyword">animation-delay</span>: <span class="mf" data-token="Literal.Number.Float">0.3</span><span class="l" data-token="Literal">s</span>; }
-        .<span class="nn" data-token="Name.Namespace">delay-400</span> { <span class="k" data-token="Keyword">animation-delay</span>: <span class="mf" data-token="Literal.Number.Float">0.4</span><span class="l" data-token="Literal">s</span>; }
-
-        <span class="c" data-token="Comment">/* Scrollbar oculta para limpieza */</span>
-        ::<span class="bp" data-token="Name.Builtin.Pseudo">-webkit-scrollbar</span> {
-            <span class="k" data-token="Keyword">width</span>: <span class="mi" data-token="Literal.Number.Integer">8</span><span class="l" data-token="Literal">px</span>;
-        }
-        ::<span class="bp" data-token="Name.Builtin.Pseudo">-webkit-scrollbar-track</span> {
-            <span class="k" data-token="Keyword">background</span>: <span class="mh" data-token="Literal.Number.Hex">#0B0E14</span>; 
-        }
-        ::<span class="bp" data-token="Name.Builtin.Pseudo">-webkit-scrollbar-thumb</span> {
-            <span class="k" data-token="Keyword">background</span>: <span class="mh" data-token="Literal.Number.Hex">#FF5E00</span>; 
-            <span class="k" data-token="Keyword">border-radius</span>: <span class="mi" data-token="Literal.Number.Integer">4</span><span class="l" data-token="Literal">px</span>;
-        }
-    &lt;/<span class="nt" data-token="Name.Tag">style</span>&gt;
-&lt;/<span class="nt" data-token="Name.Tag">head</span>&gt;
-&lt;<span class="nt" data-token="Name.Tag">body</span> <span class="na" data-token="Name.Attribute">class</span><span class="o" data-token="Operator">=</span><span class="s" data-token="Literal.String">&quot;font-body selection:bg-neon-orange selection:text-white&quot;</span>&gt;
-
-    &lt;<span class="nt" data-token="Name.Tag">header</span> <span class="na" data-token="Name.Attribute">class</span><span class="o" data-token="Operator">=</span><span class="s" data-token="Literal.String">&quot;relative w-full py-12 px-4 border-b-2 border-neon-orange bg-grid-pattern&quot;</span>&gt;
-        &lt;<span class="nt" data-token="Name.Tag">div</span> <span class="na" data-token="Name.Attribute">class</span><span class="o" data-token="Operator">=</span><span class="s" data-token="Literal.String">&quot;max-w-6xl mx-auto text-center relative z-10&quot;</span>&gt;
-            &lt;<span class="nt" data-token="Name.Tag">div</span> <span class="na" data-token="Name.Attribute">class</span><span class="o" data-token="Operator">=</span><span class="s" data-token="Literal.String">&quot;inline-block bg-neon-orange/20 border border-neon-orange text-neon-orange px-4 py-1 mb-4 text-sm tracking-widest font-bold uppercase fade-in-up&quot;</span>&gt;
-                Briefing de Misión // 3º ESO
-            &lt;/<span class="nt" data-token="Name.Tag">div</span>&gt;
-            &lt;<span class="nt" data-token="Name.Tag">h1</span> <span class="na" data-token="Name.Attribute">class</span><span class="o" data-token="Operator">=</span><span class="s" data-token="Literal.String">&quot;font-head text-7xl md:text-9xl text-white leading-none mb-2 fade-in-up delay-100&quot;</span>&gt;
-                PROJECT &lt;<span class="nt" data-token="Name.Tag">span</span> <span class="na" data-token="Name.Attribute">class</span><span class="o" data-token="Operator">=</span><span class="s" data-token="Literal.String">&quot;text-transparent bg-clip-text bg-gradient-to-r from-neon-orange to-red-600&quot;</span>&gt;RALLY IRATI&lt;/<span class="nt" data-token="Name.Tag">span</span>&gt;
-            &lt;/<span class="nt" data-token="Name.Tag">h1</span>&gt;
-            &lt;<span class="nt" data-token="Name.Tag">p</span> <span class="na" data-token="Name.Attribute">class</span><span class="o" data-token="Operator">=</span><span class="s" data-token="Literal.String">&quot;text-xl md:text-2xl text-gray-400 max-w-2xl mx-auto font-light fade-in-up delay-200&quot;</span>&gt;
-                &lt;<span class="nt" data-token="Name.Tag">span</span> <span class="na" data-token="Name.Attribute">class</span><span class="o" data-token="Operator">=</span><span class="s" data-token="Literal.String">&quot;text-neon-cyan font-bold&quot;</span>&gt;IRATI FX STUDIOS&lt;/<span class="nt" data-token="Name.Tag">span</span>&gt; busca ingenieros y creativos. &lt;<span class="nt" data-token="Name.Tag">br</span>&gt;
-                ¿El objetivo? Rodar el salto imposible usando solo &lt;<span class="nt" data-token="Name.Tag">strong</span>&gt;Física y Cine&lt;/<span class="nt" data-token="Name.Tag">strong</span>&gt;.
-            &lt;/<span class="nt" data-token="Name.Tag">p</span>&gt;
-        &lt;/<span class="nt" data-token="Name.Tag">div</span>&gt;
-        &lt;<span class="nt" data-token="Name.Tag">div</span> <span class="na" data-token="Name.Attribute">class</span><span class="o" data-token="Operator">=</span><span class="s" data-token="Literal.String">&quot;absolute inset-0 bg-gradient-to-b from-transparent to-dark-bg pointer-events-none&quot;</span>&gt;&lt;/<span class="nt" data-token="Name.Tag">div</span>&gt;
-    &lt;/<span class="nt" data-token="Name.Tag">header</span>&gt;
-
-    &lt;<span class="nt" data-token="Name.Tag">section</span> <span class="na" data-token="Name.Attribute">class</span><span class="o" data-token="Operator">=</span><span class="s" data-token="Literal.String">&quot;max-w-6xl mx-auto px-4 py-12&quot;</span>&gt;
-        &lt;<span class="nt" data-token="Name.Tag">div</span> <span class="na" data-token="Name.Attribute">class</span><span class="o" data-token="Operator">=</span><span class="s" data-token="Literal.String">&quot;grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6&quot;</span>&gt;
+        <div class="grid md:grid-cols-2 gap-10 mt-8">
             
-            &lt;<span class="nt" data-token="Name.Tag">div</span> <span class="na" data-token="Name.Attribute">class</span><span class="o" data-token="Operator">=</span><span class="s" data-token="Literal.String">&quot;bg-card-bg border border-gray-800 p-6 rounded hover:border-neon-orange transition-all duration-300 group fade-in-up delay-100&quot;</span>&gt;
-                &lt;<span class="nt" data-token="Name.Tag">i</span> <span class="na" data-token="Name.Attribute">class</span><span class="o" data-token="Operator">=</span><span class="s" data-token="Literal.String">&quot;fa-solid fa-atom text-4xl text-neon-orange mb-4 group-hover:scale-110 transition-transform&quot;</span>&gt;&lt;/<span class="nt" data-token="Name.Tag">i</span>&gt;
-                &lt;<span class="nt" data-token="Name.Tag">h3</span> <span class="na" data-token="Name.Attribute">class</span><span class="o" data-token="Operator">=</span><span class="s" data-token="Literal.String">&quot;font-head text-3xl text-white mb-2&quot;</span>&gt;EL MOTOR&lt;/<span class="nt" data-token="Name.Tag">h3</span>&gt;
-                &lt;<span class="nt" data-token="Name.Tag">p</span> <span class="na" data-token="Name.Attribute">class</span><span class="o" data-token="Operator">=</span><span class="s" data-token="Literal.String">&quot;text-sm text-gray-400&quot;</span>&gt;Sin electricidad. Sin gasolina. Solo &lt;<span class="nt" data-token="Name.Tag">strong</span>&gt;GRAVEDAD&lt;/<span class="nt" data-token="Name.Tag">strong</span>&gt;. Usaréis la 2ª Ley de Newton ($F=ma$) para propulsar el vehículo.&lt;/<span class="nt" data-token="Name.Tag">p</span>&gt;
-            &lt;/<span class="nt" data-token="Name.Tag">div</span>&gt;
-
-            &lt;<span class="nt" data-token="Name.Tag">div</span> <span class="na" data-token="Name.Attribute">class</span><span class="o" data-token="Operator">=</span><span class="s" data-token="Literal.String">&quot;bg-card-bg border border-gray-800 p-6 rounded hover:border-neon-cyan transition-all duration-300 group fade-in-up delay-200&quot;</span>&gt;
-                &lt;<span class="nt" data-token="Name.Tag">i</span> <span class="na" data-token="Name.Attribute">class</span><span class="o" data-token="Operator">=</span><span class="s" data-token="Literal.String">&quot;fa-solid fa-wrench text-4xl text-neon-cyan mb-4 group-hover:scale-110 transition-transform&quot;</span>&gt;&lt;/<span class="nt" data-token="Name.Tag">i</span>&gt;
-                &lt;<span class="nt" data-token="Name.Tag">h3</span> <span class="na" data-token="Name.Attribute">class</span><span class="o" data-token="Operator">=</span><span class="s" data-token="Literal.String">&quot;font-head text-3xl text-white mb-2&quot;</span>&gt;EL VEHÍCULO&lt;/<span class="nt" data-token="Name.Tag">h3</span>&gt;
-                &lt;<span class="nt" data-token="Name.Tag">p</span> <span class="na" data-token="Name.Attribute">class</span><span class="o" data-token="Operator">=</span><span class="s" data-token="Literal.String">&quot;text-sm text-gray-400&quot;</span>&gt;Construcción de chasis con &lt;<span class="nt" data-token="Name.Tag">strong</span>&gt;material reciclado&lt;/<span class="nt" data-token="Name.Tag">strong</span>&gt;. Requisito ITV: Debe tener gancho y rodar 3m recto.&lt;/<span class="nt" data-token="Name.Tag">p</span>&gt;
-            &lt;/<span class="nt" data-token="Name.Tag">div</span>&gt;
-
-            &lt;<span class="nt" data-token="Name.Tag">div</span> <span class="na" data-token="Name.Attribute">class</span><span class="o" data-token="Operator">=</span><span class="s" data-token="Literal.String">&quot;bg-card-bg border border-gray-800 p-6 rounded hover:border-neon-green transition-all duration-300 group fade-in-up delay-300&quot;</span>&gt;
-                &lt;<span class="nt" data-token="Name.Tag">i</span> <span class="na" data-token="Name.Attribute">class</span><span class="o" data-token="Operator">=</span><span class="s" data-token="Literal.String">&quot;fa-solid fa-film text-4xl text-neon-green mb-4 group-hover:scale-110 transition-transform&quot;</span>&gt;&lt;/<span class="nt" data-token="Name.Tag">i</span>&gt;
-                &lt;<span class="nt" data-token="Name.Tag">h3</span> <span class="na" data-token="Name.Attribute">class</span><span class="o" data-token="Operator">=</span><span class="s" data-token="Literal.String">&quot;font-head text-3xl text-white mb-2&quot;</span>&gt;EL VÍDEO&lt;/<span class="nt" data-token="Name.Tag">h3</span>&gt;
-                &lt;<span class="nt" data-token="Name.Tag">p</span> <span class="na" data-token="Name.Attribute">class</span><span class="o" data-token="Operator">=</span><span class="s" data-token="Literal.String">&quot;text-sm text-gray-400&quot;</span>&gt;Técnica del &lt;<span class="nt" data-token="Name.Tag">strong</span>&gt;&quot;Corte Mágico&quot;&lt;/<span class="nt" data-token="Name.Tag">strong</span>&gt;. Grabamos la realidad en el patio y la ficción en Chroma Key. Se unen en edición.&lt;/<span class="nt" data-token="Name.Tag">p</span>&gt;
-            &lt;/<span class="nt" data-token="Name.Tag">div</span>&gt;
-
-            &lt;<span class="nt" data-token="Name.Tag">div</span> <span class="na" data-token="Name.Attribute">class</span><span class="o" data-token="Operator">=</span><span class="s" data-token="Literal.String">&quot;bg-card-bg border border-gray-800 p-6 rounded hover:border-purple-500 transition-all duration-300 group fade-in-up delay-400&quot;</span>&gt;
-                &lt;<span class="nt" data-token="Name.Tag">i</span> <span class="na" data-token="Name.Attribute">class</span><span class="o" data-token="Operator">=</span><span class="s" data-token="Literal.String">&quot;fa-solid fa-users text-4xl text-purple-500 mb-4 group-hover:scale-110 transition-transform&quot;</span>&gt;&lt;/<span class="nt" data-token="Name.Tag">i</span>&gt;
-                &lt;<span class="nt" data-token="Name.Tag">h3</span> <span class="na" data-token="Name.Attribute">class</span><span class="o" data-token="Operator">=</span><span class="s" data-token="Literal.String">&quot;font-head text-3xl text-white mb-2&quot;</span>&gt;EL EQUIPO&lt;/<span class="nt" data-token="Name.Tag">h3</span>&gt;
-                &lt;<span class="nt" data-token="Name.Tag">p</span> <span class="na" data-token="Name.Attribute">class</span><span class="o" data-token="Operator">=</span><span class="s" data-token="Literal.String">&quot;text-sm text-gray-400&quot;</span>&gt;Escuderías de &lt;<span class="nt" data-token="Name.Tag">strong</span>&gt;4 especialistas&lt;/<span class="nt" data-token="Name.Tag">strong</span>&gt;. Cada uno tiene un rol vital. Si uno falla, el coche se estrella.&lt;/<span class="nt" data-token="Name.Tag">p</span>&gt;
-            &lt;/<span class="nt" data-token="Name.Tag">div</span>&gt;
-
-        &lt;/<span class="nt" data-token="Name.Tag">div</span>&gt;
-    &lt;/<span class="nt" data-token="Name.Tag">section</span>&gt;
-
-    &lt;<span class="nt" data-token="Name.Tag">section</span> <span class="na" data-token="Name.Attribute">class</span><span class="o" data-token="Operator">=</span><span class="s" data-token="Literal.String">&quot;bg-gray-900 py-16 clip-tech&quot;</span>&gt;
-        &lt;<span class="nt" data-token="Name.Tag">div</span> <span class="na" data-token="Name.Attribute">class</span><span class="o" data-token="Operator">=</span><span class="s" data-token="Literal.String">&quot;max-w-5xl mx-auto px-4&quot;</span>&gt;
-            &lt;<span class="nt" data-token="Name.Tag">h2</span> <span class="na" data-token="Name.Attribute">class</span><span class="o" data-token="Operator">=</span><span class="s" data-token="Literal.String">&quot;font-head text-5xl text-white text-center mb-12&quot;</span>&gt;ELIGE TU ROL &lt;<span class="nt" data-token="Name.Tag">span</span> <span class="na" data-token="Name.Attribute">class</span><span class="o" data-token="Operator">=</span><span class="s" data-token="Literal.String">&quot;text-neon-cyan&quot;</span>&gt;///&lt;/<span class="nt" data-token="Name.Tag">span</span>&gt;&lt;/<span class="nt" data-token="Name.Tag">h2</span>&gt;
-            
-            &lt;<span class="nt" data-token="Name.Tag">div</span> <span class="na" data-token="Name.Attribute">class</span><span class="o" data-token="Operator">=</span><span class="s" data-token="Literal.String">&quot;grid md:grid-cols-2 gap-8&quot;</span>&gt;
-                &lt;<span class="nt" data-token="Name.Tag">div</span> <span class="na" data-token="Name.Attribute">class</span><span class="o" data-token="Operator">=</span><span class="s" data-token="Literal.String">&quot;flex items-start gap-4 p-4 border-l-4 border-neon-orange bg-dark-bg/50&quot;</span>&gt;
-                    &lt;<span class="nt" data-token="Name.Tag">div</span> <span class="na" data-token="Name.Attribute">class</span><span class="o" data-token="Operator">=</span><span class="s" data-token="Literal.String">&quot;bg-gray-800 p-3 rounded text-neon-orange&quot;</span>&gt;&lt;<span class="nt" data-token="Name.Tag">i</span> <span class="na" data-token="Name.Attribute">class</span><span class="o" data-token="Operator">=</span><span class="s" data-token="Literal.String">&quot;fa-solid fa-compass-drafting text-xl&quot;</span>&gt;&lt;/<span class="nt" data-token="Name.Tag">i</span>&gt;&lt;/<span class="nt" data-token="Name.Tag">div</span>&gt;
-                    &lt;<span class="nt" data-token="Name.Tag">div</span>&gt;
-                        &lt;<span class="nt" data-token="Name.Tag">h4</span> <span class="na" data-token="Name.Attribute">class</span><span class="o" data-token="Operator">=</span><span class="s" data-token="Literal.String">&quot;font-head text-2xl text-white&quot;</span>&gt;JEFA/E MECÁNICA&lt;/<span class="nt" data-token="Name.Tag">h4</span>&gt;
-                        &lt;<span class="nt" data-token="Name.Tag">p</span> <span class="na" data-token="Name.Attribute">class</span><span class="o" data-token="Operator">=</span><span class="s" data-token="Literal.String">&quot;text-xs uppercase font-bold text-gray-500 mb-1&quot;</span>&gt;Dpto. Ingeniería (Física)&lt;/<span class="nt" data-token="Name.Tag">p</span>&gt;
-                        &lt;<span class="nt" data-token="Name.Tag">p</span> <span class="na" data-token="Name.Attribute">class</span><span class="o" data-token="Operator">=</span><span class="s" data-token="Literal.String">&quot;text-sm text-gray-300&quot;</span>&gt;Responsable de los cálculos de fuerza, pesaje y montaje del sistema de poleas en el patio.&lt;/<span class="nt" data-token="Name.Tag">p</span>&gt;
-                    &lt;/<span class="nt" data-token="Name.Tag">div</span>&gt;
-                &lt;/<span class="nt" data-token="Name.Tag">div</span>&gt;
-
-                &lt;<span class="nt" data-token="Name.Tag">div</span> <span class="na" data-token="Name.Attribute">class</span><span class="o" data-token="Operator">=</span><span class="s" data-token="Literal.String">&quot;flex items-start gap-4 p-4 border-l-4 border-neon-cyan bg-dark-bg/50&quot;</span>&gt;
-                    &lt;<span class="nt" data-token="Name.Tag">div</span> <span class="na" data-token="Name.Attribute">class</span><span class="o" data-token="Operator">=</span><span class="s" data-token="Literal.String">&quot;bg-gray-800 p-3 rounded text-neon-cyan&quot;</span>&gt;&lt;<span class="nt" data-token="Name.Tag">i</span> <span class="na" data-token="Name.Attribute">class</span><span class="o" data-token="Operator">=</span><span class="s" data-token="Literal.String">&quot;fa-solid fa-palette text-xl&quot;</span>&gt;&lt;/<span class="nt" data-token="Name.Tag">i</span>&gt;&lt;/<span class="nt" data-token="Name.Tag">div</span>&gt;
-                    &lt;<span class="nt" data-token="Name.Tag">div</span>&gt;
-                        &lt;<span class="nt" data-token="Name.Tag">h4</span> <span class="na" data-token="Name.Attribute">class</span><span class="o" data-token="Operator">=</span><span class="s" data-token="Literal.String">&quot;font-head text-2xl text-white&quot;</span>&gt;DIR. ARTE <span class="err" data-token="Error">&amp;</span> VFX&lt;/<span class="nt" data-token="Name.Tag">h4</span>&gt;
-                        &lt;<span class="nt" data-token="Name.Tag">p</span> <span class="na" data-token="Name.Attribute">class</span><span class="o" data-token="Operator">=</span><span class="s" data-token="Literal.String">&quot;text-xs uppercase font-bold text-gray-500 mb-1&quot;</span>&gt;Dpto. Plástica&lt;/<span class="nt" data-token="Name.Tag">p</span>&gt;
-                        &lt;<span class="nt" data-token="Name.Tag">p</span> <span class="na" data-token="Name.Attribute">class</span><span class="o" data-token="Operator">=</span><span class="s" data-token="Literal.String">&quot;text-sm text-gray-300&quot;</span>&gt;Diseña la estética del coche, dirige el rodaje en Chroma y edita el vídeo final con efectos.&lt;/<span class="nt" data-token="Name.Tag">p</span>&gt;
-                    &lt;/<span class="nt" data-token="Name.Tag">div</span>&gt;
-                &lt;/<span class="nt" data-token="Name.Tag">div</span>&gt;
-
-                &lt;<span class="nt" data-token="Name.Tag">div</span> <span class="na" data-token="Name.Attribute">class</span><span class="o" data-token="Operator">=</span><span class="s" data-token="Literal.String">&quot;flex items-start gap-4 p-4 border-l-4 border-purple-500 bg-dark-bg/50&quot;</span>&gt;
-                    &lt;<span class="nt" data-token="Name.Tag">div</span> <span class="na" data-token="Name.Attribute">class</span><span class="o" data-token="Operator">=</span><span class="s" data-token="Literal.String">&quot;bg-gray-800 p-3 rounded text-purple-500&quot;</span>&gt;&lt;<span class="nt" data-token="Name.Tag">i</span> <span class="na" data-token="Name.Attribute">class</span><span class="o" data-token="Operator">=</span><span class="s" data-token="Literal.String">&quot;fa-solid fa-user-tie text-xl&quot;</span>&gt;&lt;/<span class="nt" data-token="Name.Tag">i</span>&gt;&lt;/<span class="nt" data-token="Name.Tag">div</span>&gt;
-                    &lt;<span class="nt" data-token="Name.Tag">div</span>&gt;
-                        &lt;<span class="nt" data-token="Name.Tag">h4</span> <span class="na" data-token="Name.Attribute">class</span><span class="o" data-token="Operator">=</span><span class="s" data-token="Literal.String">&quot;font-head text-2xl text-white&quot;</span>&gt;PROJECT MANAGER&lt;/<span class="nt" data-token="Name.Tag">h4</span>&gt;
-                        &lt;<span class="nt" data-token="Name.Tag">p</span> <span class="na" data-token="Name.Attribute">class</span><span class="o" data-token="Operator">=</span><span class="s" data-token="Literal.String">&quot;text-xs uppercase font-bold text-gray-500 mb-1&quot;</span>&gt;Dpto. Lenguas&lt;/<span class="nt" data-token="Name.Tag">p</span>&gt;
-                        &lt;<span class="nt" data-token="Name.Tag">p</span> <span class="na" data-token="Name.Attribute">class</span><span class="o" data-token="Operator">=</span><span class="s" data-token="Literal.String">&quot;text-sm text-gray-300&quot;</span>&gt;Coordina al equipo, gestiona el Drive y redacta el Press Kit en Inglés (Subtítulos).&lt;/<span class="nt" data-token="Name.Tag">p</span>&gt;
-                    &lt;/<span class="nt" data-token="Name.Tag">div</span>&gt;
-                &lt;/<span class="nt" data-token="Name.Tag">div</span>&gt;
-
-                &lt;<span class="nt" data-token="Name.Tag">div</span> <span class="na" data-token="Name.Attribute">class</span><span class="o" data-token="Operator">=</span><span class="s" data-token="Literal.String">&quot;flex items-start gap-4 p-4 border-l-4 border-neon-green bg-dark-bg/50&quot;</span>&gt;
-                    &lt;<span class="nt" data-token="Name.Tag">div</span> <span class="na" data-token="Name.Attribute">class</span><span class="o" data-token="Operator">=</span><span class="s" data-token="Literal.String">&quot;bg-gray-800 p-3 rounded text-neon-green&quot;</span>&gt;&lt;<span class="nt" data-token="Name.Tag">i</span> <span class="na" data-token="Name.Attribute">class</span><span class="o" data-token="Operator">=</span><span class="s" data-token="Literal.String">&quot;fa-solid fa-stopwatch text-xl&quot;</span>&gt;&lt;/<span class="nt" data-token="Name.Tag">i</span>&gt;&lt;/<span class="nt" data-token="Name.Tag">div</span>&gt;
-                    &lt;<span class="nt" data-token="Name.Tag">div</span>&gt;
-                        &lt;<span class="nt" data-token="Name.Tag">h4</span> <span class="na" data-token="Name.Attribute">class</span><span class="o" data-token="Operator">=</span><span class="s" data-token="Literal.String">&quot;font-head text-2xl text-white&quot;</span>&gt;TELEMETRÍA&lt;/<span class="nt" data-token="Name.Tag">h4</span>&gt;
-                        &lt;<span class="nt" data-token="Name.Tag">p</span> <span class="na" data-token="Name.Attribute">class</span><span class="o" data-token="Operator">=</span><span class="s" data-token="Literal.String">&quot;text-xs uppercase font-bold text-gray-500 mb-1&quot;</span>&gt;Dpto. Matemáticas&lt;/<span class="nt" data-token="Name.Tag">p</span>&gt;
-                        &lt;<span class="nt" data-token="Name.Tag">p</span> <span class="na" data-token="Name.Attribute">class</span><span class="o" data-token="Operator">=</span><span class="s" data-token="Literal.String">&quot;text-sm text-gray-300&quot;</span>&gt;Controla el &quot;Radar Humano&quot; (cronómetros), analiza los datos y gestiona el presupuesto.&lt;/<span class="nt" data-token="Name.Tag">p</span>&gt;
-                    &lt;/<span class="nt" data-token="Name.Tag">div</span>&gt;
-                &lt;/<span class="nt" data-token="Name.Tag">div</span>&gt;
-            &lt;/<span class="nt" data-token="Name.Tag">div</span>&gt;
-        &lt;/<span class="nt" data-token="Name.Tag">div</span>&gt;
-    &lt;/<span class="nt" data-token="Name.Tag">section</span>&gt;
-
-    &lt;<span class="nt" data-token="Name.Tag">section</span> <span class="na" data-token="Name.Attribute">class</span><span class="o" data-token="Operator">=</span><span class="s" data-token="Literal.String">&quot;max-w-6xl mx-auto px-4 py-16 grid md:grid-cols-2 gap-12 items-center&quot;</span>&gt;
-        
-        &lt;<span class="nt" data-token="Name.Tag">div</span>&gt;
-            &lt;<span class="nt" data-token="Name.Tag">h2</span> <span class="na" data-token="Name.Attribute">class</span><span class="o" data-token="Operator">=</span><span class="s" data-token="Literal.String">&quot;font-head text-4xl text-white mb-8&quot;</span>&gt;HOJA DE RUTA&lt;/<span class="nt" data-token="Name.Tag">h2</span>&gt;
-            &lt;<span class="nt" data-token="Name.Tag">div</span> <span class="na" data-token="Name.Attribute">class</span><span class="o" data-token="Operator">=</span><span class="s" data-token="Literal.String">&quot;space-y-8 border-l-2 border-gray-700 ml-3 pl-8 relative&quot;</span>&gt;
+            <!-- SECCIÓN 1: CINE (CINEMÁTICA) -->
+            <!-- Estética Azul / Movimiento -->
+            <section class="bg-slate-900 border border-slate-800 rounded-xl p-6 relative overflow-hidden group">
+                <div class="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition text-9xl">🏃</div>
                 
-                &lt;<span class="nt" data-token="Name.Tag">div</span> <span class="na" data-token="Name.Attribute">class</span><span class="o" data-token="Operator">=</span><span class="s" data-token="Literal.String">&quot;relative&quot;</span>&gt;
-                    &lt;<span class="nt" data-token="Name.Tag">span</span> <span class="na" data-token="Name.Attribute">class</span><span class="o" data-token="Operator">=</span><span class="s" data-token="Literal.String">&quot;absolute -left-[39px] top-0 w-5 h-5 rounded-full bg-neon-orange border-4 border-dark-bg&quot;</span>&gt;&lt;/<span class="nt" data-token="Name.Tag">span</span>&gt;
-                    &lt;<span class="nt" data-token="Name.Tag">h4</span> <span class="na" data-token="Name.Attribute">class</span><span class="o" data-token="Operator">=</span><span class="s" data-token="Literal.String">&quot;text-xl font-bold text-white&quot;</span>&gt;SEMANA 1: PRE-PRODUCCIÓN&lt;/<span class="nt" data-token="Name.Tag">h4</span>&gt;
-                    &lt;<span class="nt" data-token="Name.Tag">p</span> <span class="na" data-token="Name.Attribute">class</span><span class="o" data-token="Operator">=</span><span class="s" data-token="Literal.String">&quot;text-sm text-gray-400 mt-1&quot;</span>&gt;Cálculos teóricos, diseño de chasis y presupuesto inicial. El coche nace aquí.&lt;/<span class="nt" data-token="Name.Tag">p</span>&gt;
-                &lt;/<span class="nt" data-token="Name.Tag">div</span>&gt;
+                <h2 class="text-3xl title-font text-cyan-400 mb-2 border-b border-cyan-900 pb-2">
+                    1. Cinemática
+                </h2>
+                <p class="text-gray-400 text-sm mb-6">El estudio del movimiento sin atender a las causas.</p>
 
-                &lt;<span class="nt" data-token="Name.Tag">div</span> <span class="na" data-token="Name.Attribute">class</span><span class="o" data-token="Operator">=</span><span class="s" data-token="Literal.String">&quot;relative&quot;</span>&gt;
-                    &lt;<span class="nt" data-token="Name.Tag">span</span> <span class="na" data-token="Name.Attribute">class</span><span class="o" data-token="Operator">=</span><span class="s" data-token="Literal.String">&quot;absolute -left-[39px] top-0 w-5 h-5 rounded-full bg-neon-cyan border-4 border-dark-bg&quot;</span>&gt;&lt;/<span class="nt" data-token="Name.Tag">span</span>&gt;
-                    &lt;<span class="nt" data-token="Name.Tag">h4</span> <span class="na" data-token="Name.Attribute">class</span><span class="o" data-token="Operator">=</span><span class="s" data-token="Literal.String">&quot;text-xl font-bold text-white&quot;</span>&gt;SEMANA 2: RODAJE (SHOOTING)&lt;/<span class="nt" data-token="Name.Tag">h4</span>&gt;
-                    &lt;<span class="nt" data-token="Name.Tag">p</span> <span class="na" data-token="Name.Attribute">class</span><span class="o" data-token="Operator">=</span><span class="s" data-token="Literal.String">&quot;text-sm text-gray-400 mt-1&quot;</span>&gt;Bajamos al patio. Medición de tiempos reales. Grabación de escenas en Chroma.&lt;/<span class="nt" data-token="Name.Tag">p</span>&gt;
-                &lt;/<span class="nt" data-token="Name.Tag">div</span>&gt;
+                <!-- Tarjeta Fórmula -->
+                <div class="bg-black/50 p-4 rounded-lg mb-6 border-l-4 border-cyan-500">
+                    <p class="mono-font text-lg text-center">v = d / t</p>
+                </div>
 
-                &lt;<span class="nt" data-token="Name.Tag">div</span> <span class="na" data-token="Name.Attribute">class</span><span class="o" data-token="Operator">=</span><span class="s" data-token="Literal.String">&quot;relative&quot;</span>&gt;
-                    &lt;<span class="nt" data-token="Name.Tag">span</span> <span class="na" data-token="Name.Attribute">class</span><span class="o" data-token="Operator">=</span><span class="s" data-token="Literal.String">&quot;absolute -left-[39px] top-0 w-5 h-5 rounded-full bg-neon-green border-4 border-dark-bg&quot;</span>&gt;&lt;/<span class="nt" data-token="Name.Tag">span</span>&gt;
-                    &lt;<span class="nt" data-token="Name.Tag">h4</span> <span class="na" data-token="Name.Attribute">class</span><span class="o" data-token="Operator">=</span><span class="s" data-token="Literal.String">&quot;text-xl font-bold text-white&quot;</span>&gt;SEMANA 3: POST <span class="err" data-token="Error">&amp;</span> PREMIERE&lt;/<span class="nt" data-token="Name.Tag">h4</span>&gt;
-                    &lt;<span class="nt" data-token="Name.Tag">p</span> <span class="na" data-token="Name.Attribute">class</span><span class="o" data-token="Operator">=</span><span class="s" data-token="Literal.String">&quot;text-sm text-gray-400 mt-1&quot;</span>&gt;Edición de vídeo, informe de errores y Gala de Estreno. Entrega final.&lt;/<span class="nt" data-token="Name.Tag">p</span>&gt;
-                &lt;/<span class="nt" data-token="Name.Tag">div</span>&gt;
+                <!-- Calculadora Cine -->
+                <div class="space-y-4">
+                    <div>
+                        <label class="text-xs uppercase text-cyan-300 tracking-wider">Distancia (metros)</label>
+                        <input type="number" id="cine-d" class="w-full p-2 rounded mt-1" placeholder="Ej: 500">
+                    </div>
+                    <div>
+                        <label class="text-xs uppercase text-cyan-300 tracking-wider">Tiempo (segundos)</label>
+                        <input type="number" id="cine-t" class="w-full p-2 rounded mt-1" placeholder="Ej: 25">
+                    </div>
+                    <button onclick="calcCine()" class="w-full bg-cyan-600 hover:bg-cyan-500 text-white font-bold py-3 rounded title-font text-xl transition">
+                        CALCULAR VELOCIDAD
+                    </button>
+                    
+                    <!-- Resultado -->
+                    <div id="res-cine" class="hidden text-center p-4 bg-cyan-900/30 rounded border border-cyan-500/30">
+                        <span class="text-gray-400 text-sm">Velocidad resultante:</span>
+                        <div class="text-3xl mono-font font-bold text-white mt-1">
+                            <span id="val-cine">0</span> m/s
+                        </div>
+                    </div>
+                </div>
+            </section>
 
-            &lt;/<span class="nt" data-token="Name.Tag">div</span>&gt;
-        &lt;/<span class="nt" data-token="Name.Tag">div</span>&gt;
 
-        &lt;<span class="nt" data-token="Name.Tag">div</span> <span class="na" data-token="Name.Attribute">class</span><span class="o" data-token="Operator">=</span><span class="s" data-token="Literal.String">&quot;bg-card-bg p-6 rounded-xl border border-gray-800&quot;</span>&gt;
-            &lt;<span class="nt" data-token="Name.Tag">h2</span> <span class="na" data-token="Name.Attribute">class</span><span class="o" data-token="Operator">=</span><span class="s" data-token="Literal.String">&quot;font-head text-4xl text-white mb-2 text-center&quot;</span>&gt;EVALUACIÓN&lt;/<span class="nt" data-token="Name.Tag">h2</span>&gt;
-            &lt;<span class="nt" data-token="Name.Tag">p</span> <span class="na" data-token="Name.Attribute">class</span><span class="o" data-token="Operator">=</span><span class="s" data-token="Literal.String">&quot;text-center text-xs text-gray-500 mb-6 uppercase tracking-widest&quot;</span>&gt;Peso por competencias&lt;/<span class="nt" data-token="Name.Tag">p</span>&gt;
+            <!-- SECCIÓN 2: DINÁMICA (FUERZAS) -->
+            <!-- Estética Roja / Impacto -->
+            <section class="bg-slate-900 border border-slate-800 rounded-xl p-6 relative overflow-hidden group">
+                <div class="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition text-9xl">💥</div>
+
+                <h2 class="text-3xl title-font text-red-500 mb-2 border-b border-red-900 pb-2">
+                    2. Dinámica
+                </h2>
+                <p class="text-gray-400 text-sm mb-6">El estudio de las fuerzas que provocan el movimiento.</p>
+
+                <!-- Tarjeta Fórmula -->
+                <div class="bg-black/50 p-4 rounded-lg mb-6 border-l-4 border-red-500">
+                    <p class="mono-font text-lg text-center">F = m · a</p>
+                </div>
+
+                <!-- Calculadora Dinámica -->
+                <div class="space-y-4">
+                    <div>
+                        <label class="text-xs uppercase text-red-300 tracking-wider">Masa (kg)</label>
+                        <input type="number" id="dina-m" class="w-full p-2 rounded mt-1" placeholder="Ej: 70">
+                    </div>
+                    <div>
+                        <label class="text-xs uppercase text-red-300 tracking-wider">Aceleración (m/s²)</label>
+                        <input type="number" id="dina-a" class="w-full p-2 rounded mt-1" placeholder="Ej: 9.8">
+                    </div>
+                    <button onclick="calcDina()" class="w-full bg-red-600 hover:bg-red-500 text-white font-bold py-3 rounded title-font text-xl transition">
+                        CALCULAR FUERZA
+                    </button>
+
+                    <!-- Resultado -->
+                    <div id="res-dina" class="hidden text-center p-4 bg-red-900/30 rounded border border-red-500/30">
+                        <span class="text-gray-400 text-sm">Fuerza resultante:</span>
+                        <div class="text-3xl mono-font font-bold text-white mt-1">
+                            <span id="val-dina">0</span> N
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+        </div>
+    </main>
+
+    <footer class="text-center p-8 text-gray-600 border-t border-gray-900 mt-10">
+        <p class="title-font text-lg">Fin de la proyección</p>
+        <p class="text-xs font-mono mt-2">© 2024 Laboratorio de Física</p>
+    </footer>
+
+    <!-- LÓGICA JAVASCRIPT -->
+    <script>
+        // Cálculo Cinemática (Velocidad = Distancia / Tiempo)
+        function calcCine() {
+            const d = parseFloat(document.getElementById('cine-d').value);
+            const t = parseFloat(document.getElementById('cine-t').value);
             
-            &lt;<span class="nt" data-token="Name.Tag">div</span> <span class="na" data-token="Name.Attribute">class</span><span class="o" data-token="Operator">=</span><span class="s" data-token="Literal.String">&quot;chart-container&quot;</span>&gt;
-                &lt;<span class="nt" data-token="Name.Tag">canvas</span> <span class="na" data-token="Name.Attribute">id</span><span class="o" data-token="Operator">=</span><span class="s" data-token="Literal.String">&quot;skillsChart&quot;</span>&gt;&lt;/<span class="nt" data-token="Name.Tag">canvas</span>&gt;
-            &lt;/<span class="nt" data-token="Name.Tag">div</span>&gt;
-        &lt;/<span class="nt" data-token="Name.Tag">div</span>&gt;
-
-    &lt;/<span class="nt" data-token="Name.Tag">section</span>&gt;
-
-    &lt;<span class="nt" data-token="Name.Tag">footer</span> <span class="na" data-token="Name.Attribute">class</span><span class="o" data-token="Operator">=</span><span class="s" data-token="Literal.String">&quot;text-center py-8 text-gray-600 text-sm border-t border-gray-900&quot;</span>&gt;
-        &lt;<span class="nt" data-token="Name.Tag">p</span> <span class="na" data-token="Name.Attribute">class</span><span class="o" data-token="Operator">=</span><span class="s" data-token="Literal.String">&quot;font-head text-2xl text-gray-500&quot;</span>&gt;IRATI FX STUDIOS&lt;/<span class="nt" data-token="Name.Tag">p</span>&gt;
-        &lt;<span class="nt" data-token="Name.Tag">p</span>&gt;Agoitz Division // Temporada 2025&lt;/<span class="nt" data-token="Name.Tag">p</span>&gt;
-    &lt;/<span class="nt" data-token="Name.Tag">footer</span>&gt;
-
-    &lt;<span class="nt" data-token="Name.Tag">script</span>&gt;
-        <span class="c1" data-token="Comment.Single">// Configuración de Chart.js</span>
-        <span class="kd" data-token="Keyword.Declaration">const</span> ctx <span class="o" data-token="Operator">=</span> <span class="nb" data-token="Name.Builtin">document</span>.getElementById(<span class="s1" data-token="Literal.String.Single">&apos;skillsChart&apos;</span>).getContext(<span class="s1" data-token="Literal.String.Single">&apos;2d&apos;</span>);
-        
-        <span class="c1" data-token="Comment.Single">// Datos de evaluación</span>
-        <span class="kd" data-token="Keyword.Declaration">const</span> data <span class="o" data-token="Operator">=</span> {
-            labels<span class="o" data-token="Operator">:</span> [<span class="s1" data-token="Literal.String.Single">&apos;CIENCIA (Fis/Qui)&apos;</span>, <span class="s1" data-token="Literal.String.Single">&apos;INGENIERÍA (Art/Tec)&apos;</span>, <span class="s1" data-token="Literal.String.Single">&apos;GESTIÓN (Mates)&apos;</span>, <span class="s1" data-token="Literal.String.Single">&apos;COMUNICACIÓN (Leng)&apos;</span>, <span class="s1" data-token="Literal.String.Single">&apos;ACTITUD&apos;</span>],
-            datasets<span class="o" data-token="Operator">:</span> [{
-                label<span class="o" data-token="Operator">:</span> <span class="s1" data-token="Literal.String.Single">&apos;Peso (%)&apos;</span>,
-                data<span class="o" data-token="Operator">:</span> [<span class="mf" data-token="Literal.Number.Float">30</span>, <span class="mf" data-token="Literal.Number.Float">25</span>, <span class="mf" data-token="Literal.Number.Float">25</span>, <span class="mf" data-token="Literal.Number.Float">20</span>, <span class="mf" data-token="Literal.Number.Float">100</span>], <span class="c1" data-token="Comment.Single">// 100 invisible para escala</span>
-                backgroundColor<span class="o" data-token="Operator">:</span> [
-                    <span class="s1" data-token="Literal.String.Single">&apos;rgba(255, 94, 0, 0.8)&apos;</span>,   <span class="c1" data-token="Comment.Single">// Naranja</span>
-                    <span class="s1" data-token="Literal.String.Single">&apos;rgba(0, 240, 255, 0.8)&apos;</span>,  <span class="c1" data-token="Comment.Single">// Cian</span>
-                    <span class="s1" data-token="Literal.String.Single">&apos;rgba(0, 255, 157, 0.8)&apos;</span>,  <span class="c1" data-token="Comment.Single">// Verde</span>
-                    <span class="s1" data-token="Literal.String.Single">&apos;rgba(168, 85, 247, 0.8)&apos;</span>, <span class="c1" data-token="Comment.Single">// Morado</span>
-                    <span class="s1" data-token="Literal.String.Single">&apos;transparent&apos;</span>              <span class="c1" data-token="Comment.Single">// Invisible</span>
-                ],
-                borderColor<span class="o" data-token="Operator">:</span> <span class="s1" data-token="Literal.String.Single">&apos;transparent&apos;</span>,
-                borderWidth<span class="o" data-token="Operator">:</span> <span class="mf" data-token="Literal.Number.Float">0</span>,
-                borderRadius<span class="o" data-token="Operator">:</span> <span class="mf" data-token="Literal.Number.Float">4</span>,
-                barPercentage<span class="o" data-token="Operator">:</span> <span class="mf" data-token="Literal.Number.Float">0.6</span>
-            }]
-        };
-
-        <span class="kd" data-token="Keyword.Declaration">const</span> config <span class="o" data-token="Operator">=</span> {
-            type<span class="o" data-token="Operator">:</span> <span class="s1" data-token="Literal.String.Single">&apos;bar&apos;</span>,
-            data<span class="o" data-token="Operator">:</span> data,
-            options<span class="o" data-token="Operator">:</span> {
-                indexAxis<span class="o" data-token="Operator">:</span> <span class="s1" data-token="Literal.String.Single">&apos;y&apos;</span>, <span class="c1" data-token="Comment.Single">// Barras horizontales</span>
-                responsive<span class="o" data-token="Operator">:</span> <span class="kc" data-token="Keyword.Constant">true</span>,
-                maintainAspectRatio<span class="o" data-token="Operator">:</span> <span class="kc" data-token="Keyword.Constant">false</span>,
-                scales<span class="o" data-token="Operator">:</span> {
-                    x<span class="o" data-token="Operator">:</span> {
-                        beginAtZero<span class="o" data-token="Operator">:</span> <span class="kc" data-token="Keyword.Constant">true</span>,
-                        max<span class="o" data-token="Operator">:</span> <span class="mf" data-token="Literal.Number.Float">35</span>, <span class="c1" data-token="Comment.Single">// Escala visual hasta 35%</span>
-                        grid<span class="o" data-token="Operator">:</span> { display<span class="o" data-token="Operator">:</span> <span class="kc" data-token="Keyword.Constant">false</span>, drawBorder<span class="o" data-token="Operator">:</span> <span class="kc" data-token="Keyword.Constant">false</span> },
-                        ticks<span class="o" data-token="Operator">:</span> { display<span class="o" data-token="Operator">:</span> <span class="kc" data-token="Keyword.Constant">false</span> } <span class="c1" data-token="Comment.Single">// Ocultar números eje X</span>
-                    },
-                    y<span class="o" data-token="Operator">:</span> {
-                        grid<span class="o" data-token="Operator">:</span> { display<span class="o" data-token="Operator">:</span> <span class="kc" data-token="Keyword.Constant">false</span>, drawBorder<span class="o" data-token="Operator">:</span> <span class="kc" data-token="Keyword.Constant">false</span> },
-                        ticks<span class="o" data-token="Operator">:</span> { 
-                            color<span class="o" data-token="Operator">:</span> <span class="s1" data-token="Literal.String.Single">&apos;#94a3b8&apos;</span>,
-                            font<span class="o" data-token="Operator">:</span> { family<span class="o" data-token="Operator">:</span> <span class="s1" data-token="Literal.String.Single">&apos;&quot;Rajdhani&quot;, sans-serif&apos;</span>, size<span class="o" data-token="Operator">:</span> <span class="mf" data-token="Literal.Number.Float">12</span>, weight<span class="o" data-token="Operator">:</span> <span class="s1" data-token="Literal.String.Single">&apos;600&apos;</span> }
-                        }
-                    }
-                },
-                plugins<span class="o" data-token="Operator">:</span> {
-                    legend<span class="o" data-token="Operator">:</span> { display<span class="o" data-token="Operator">:</span> <span class="kc" data-token="Keyword.Constant">false</span> },
-                    tooltip<span class="o" data-token="Operator">:</span> {
-                        callbacks<span class="o" data-token="Operator">:</span> {
-                            label<span class="o" data-token="Operator">:</span> <span class="kd" data-token="Keyword.Declaration">function</span>(context) {
-                                <span class="k" data-token="Keyword">return</span> context.raw <span class="o" data-token="Operator">+</span> <span class="s1" data-token="Literal.String.Single">&apos;% Nota Final&apos;</span>;
-                            }
-                        }
-                    }
-                }
+            if (d && t && t > 0) {
+                const v = d / t;
+                document.getElementById('val-cine').innerText = v.toFixed(2);
+                document.getElementById('res-cine').classList.remove('hidden');
+            } else {
+                alert("Por favor, introduce distancia y tiempo válidos (tiempo > 0).");
             }
-        };
+        }
 
-        <span class="ow" data-token="Operator.Word">new</span> Chart(ctx, config);
-    &lt;/<span class="nt" data-token="Name.Tag">script</span>&gt;
+        // Cálculo Dinámica (Fuerza = Masa * Aceleración)
+        function calcDina() {
+            const m = parseFloat(document.getElementById('dina-m').value);
+            const a = parseFloat(document.getElementById('dina-a').value);
+            
+            if (m && !isNaN(a)) { // Aceleración puede ser 0 o negativa
+                const f = m * a;
+                document.getElementById('val-dina').innerText = f.toFixed(2);
+                document.getElementById('res-dina').classList.remove('hidden');
+            } else {
+                alert("Por favor, introduce masa y aceleración válidas.");
+            }
+        }
+    </script>
 
-&lt;/<span class="nt" data-token="Name.Tag">body</span>&gt;
-&lt;/<span class="nt" data-token="Name.Tag">html</span>&gt;
-  </pre>
 </body>
 </html>
