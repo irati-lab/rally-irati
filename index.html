@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ajuste de Reacciones Químicas - 4º ESO</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            text-align: center;
+        }
+
+        header h1 {
+            color: #667eea;
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+
+        header p {
+            color: #666;
+            font-size: 1.2em;
+        }
+
+        .section {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        .section h2 {
+            color: #667eea;
+            margin-bottom: 20px;
+            font-size: 2em;
+            border-bottom: 3px solid #667eea;
+            padding-bottom: 10px;
+        }
+
+        .section h3 {
+            color: #764ba2;
+            margin: 20px 0 10px 0;
+            font-size: 1.5em;
+        }
+
+        .concept-box {
+            background: #f0f4ff;
+            padding: 20px;
+            border-left: 5px solid #667eea;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+
+        .example {
+            background: #fff9e6;
+            padding: 20px;
+            border-left: 5px solid #f4c430;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+
+        .reaction {
+            font-family: 'Courier New', monospace;
+            font-size: 1.3em;
+            background: #2d3748;
+            color: #4fd1c5;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 15px 0;
+            text-align: center;
+        }
+
+        .steps {
+            counter-reset: step-counter;
+            list-style: none;
+        }
+
+        .steps li {
+            counter-increment: step-counter;
+            margin: 15px 0;
+            padding: 15px;
+            background: #f7fafc;
+            border-radius: 8px;
+            position: relative;
+            padding-left: 50px;
+        }
+
+        .steps li::before {
+            content: counter(step-counter);
+            position: absolute;
+            left: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: #667eea;
+            color: white;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+        }
+
+        .interactive-area {
+            background: #f0fff4;
+            padding: 25px;
+            border-radius: 10px;
+            margin: 20px 0;
+            border: 2px solid #48bb78;
+        }
+
+        .exercise {
+            background: #fff5f5;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 15px 0;
+            border: 2px solid #fc8181;
+        }
+
+        input[type="number"] {
+            width: 60px;
+            padding: 8px;
+            font-size: 1.2em;
+            text-align: center;
+            border: 2px solid #667eea;
+            border-radius: 5px;
+            margin: 0 5px;
+        }
+
+        button {
+            background: #667eea;
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            font-size: 1.1em;
+            border-radius: 8px;
+            cursor: pointer;
+            margin: 10px 5px;
+            transition: all 0.3s;
+        }
+
+        button:hover {
+            background: #5568d3;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+        }
+
+        .feedback {
+            padding: 15px;
+            border-radius: 8px;
+            margin: 15px 0;
+            font-weight: bold;
+            display: none;
+        }
+
+        .feedback.correct {
+            background: #c6f6d5;
+            color: #22543d;
+            display: block;
+        }
+
+        .feedback.incorrect {
+            background: #fed7d7;
+            color: #742a2a;
+            display: block;
+        }
+
+        .tips {
+            background: #e6fffa;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+            border-left: 5px solid #38b2ac;
+        }
+
+        ul {
+            margin-left: 20px;
+            margin-top: 10px;
+        }
+
+        li {
+            margin: 8px 0;
+        }
+
+        .coefficient {
+            color: #e53e3e;
+            font-weight: bold;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            color: white;
+            margin-top: 30px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>⚗️ Ajuste de Reacciones Químicas</h1>
+            <p>Aprende a equilibrar ecuaciones químicas paso a paso</p>
+            <p><strong>Nivel: 4º de la ESO</strong></p>
+        </header>
+
+        <!-- Sección 1: ¿Qué es ajustar una reacción? -->
+        <div class="section">
+            <h2>¿Qué significa ajustar una reacción química?</h2>
+            
+            <div class="concept-box">
+                <p><strong>Ajustar o equilibrar una reacción química</strong> significa colocar números (llamados <em>coeficientes estequiométricos</em>) delante de las fórmulas químicas para que haya el mismo número de átomos de cada elemento en los reactivos y en los productos.</p>
+            </div>
+
+            <h3>¿Por qué es necesario?</h3>
+            <p>Por la <strong>Ley de Conservación de la Masa</strong> de Lavoisier:</p>
+            <div class="concept-box">
+                <p><em>"En una reacción química, la masa total de los reactivos es igual a la masa total de los productos. La materia no se crea ni se destruye, solo se transforma."</em></p>
+            </div>
+
+            <div class="example">
+                <h4>Ejemplo sin ajustar:</h4>
+                <div class="reaction">H₂ + O₂ → H₂O</div>
+                <p>❌ Reactivos: 2 átomos de H, 2 átomos de O<br>
+                   ❌ Productos: 2 átomos de H, 1 átomo de O<br>
+                   <strong>¡No está equilibrada!</strong></p>
+            </div>
+
+            <div class="example">
+                <h4>Misma reacción ajustada:</h4>
+                <div class="reaction"><span class="coefficient">2</span>H₂ + O₂ → <span class="coefficient">2</span>H₂O</div>
+                <p>✅ Reactivos: 4 átomos de H, 2 átomos de O<br>
+                   ✅ Productos: 4 átomos de H, 2 átomos de O<br>
+                   <strong>¡Perfectamente equilibrada!</strong></p>
+            </div>
+        </div>
+
+        <!-- Sección 2: Pasos para ajustar -->
+        <div class="section">
+            <h2>Pasos para ajustar una reacción</h2>
+            
+            <ol class="steps">
+                <li><strong>Escribe la ecuación sin ajustar</strong> con las fórmulas correctas de todos los reactivos y productos.</li>
+                <li><strong>Cuenta los átomos</strong> de cada elemento en reactivos y productos.</li>
+                <li><strong>Coloca coeficientes</strong> delante de las fórmulas para igualar el número de átomos. <br>⚠️ <em>Nunca cambies los subíndices de las fórmulas.</em></li>
+                <li><strong>Empieza por los elementos</strong> que aparecen en menos compuestos y deja el oxígeno e hidrógeno para el final.</li>
+                <li><strong>Verifica</strong> que todos los elementos estén equilibrados.</li>
+                <li><strong>Simplifica</strong> los coeficientes si es posible (deben ser los números enteros más pequeños posibles).</li>
+            </ol>
+
+            <div class="tips">
+                <h3>💡 Consejos importantes:</h3>
+                <ul>
+                    <li>El coeficiente 1 no se escribe (se sobreentiende)</li>
+                    <li>Los coeficientes afectan a TODOS los átomos de la fórmula que preceden</li>
+                    <li>Si tienes paréntesis, multiplica el coeficiente por el subíndice exterior</li>
+                    <li>Trabaja con lápiz y papel al principio hasta coger práctica</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Sección 3: Ejemplo guiado -->
+        <div class="section">
+            <h2>Ejemplo guiado paso a paso</h2>
+            
+            <h3>Ajustemos: CH₄ + O₂ → CO₂ + H₂O</h3>
+
+            <div class="interactive-area">
+                <h4>Paso 1: Contamos los átomos iniciales</h4>
+                <div class="reaction">CH₄ + O₂ → CO₂ + H₂O</div>
+                <table style="width: 100%; margin: 15px 0; border-collapse: collapse;">
+                    <tr style="background: #667eea; color: white;">
+                        <th style="padding: 10px; border: 1px solid #ddd;">Elemento</th>
+                        <th style="padding: 10px; border: 1px solid #ddd;">Reactivos</th>
+                        <th style="padding: 10px; border: 1px solid #ddd;">Productos</th>
+                        <th style="padding: 10px; border: 1px solid #ddd;">¿Está igual?</th>
+                    </tr>
+                    <tr>
+                        <td style="padding: 10px; border: 1px solid #ddd; text-align: center;">C</td>
+                        <td style="padding: 10px; border: 1px solid #ddd; text-align: center;">1</td>
+                        <td style="padding: 10px; border: 1px solid #ddd; text-align: center;">1</td>
+                        <td style="padding: 10px; border: 1px solid #ddd; text-align: center;">✅ Sí</td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 10px; border: 1px solid #ddd; text-align: center;">H</td>
+                        <td style="padding: 10px; border: 1px solid #ddd; text-align: center;">4</td>
+                        <td style="padding: 10px; border: 1px solid #ddd; text-align: center;">2</td>
+                        <td style="padding: 10px; border: 1px solid #ddd; text-align: center;">❌ No</td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 10px; border: 1px solid #ddd; text-align: center;">O</td>
+                        <td style="padding: 10px; border: 1px solid #ddd; text-align: center;">2</td>
+                        <td style="padding: 10px; border: 1px solid #ddd; text-align: center;">3</td>
+                        <td style="padding: 10px; border: 1px solid #ddd; text-align: center;">❌ No</td>
+                    </tr>
+                </table>
+
+                <h4>Paso 2: Ajustamos el Hidrógeno</h4>
+                <p>Ponemos coeficiente 2 delante del H₂O:</p>
+                <div class="reaction">CH₄ + O₂ → CO₂ + <span class="coefficient">2</span>H₂O</div>
+                <p>Ahora tenemos 4 átomos de H en ambos lados ✅</p>
+
+                <h4>Paso 3: Ajustamos el Oxígeno</h4>
+                <p>En productos hay 4 átomos de O (2 del CO₂ + 2 del 2H₂O). Necesitamos 4 en reactivos:</p>
+                <div class="reaction">CH₄ + <span class="coefficient">2</span>O₂ → CO₂ + 2H₂O</div>
+                <p>¡Ahora hay 4 átomos de O en ambos lados! ✅</p>
+
+                <h4>Paso 4: Verificación final</h4>
+                <div class="reaction" style="background: #48bb78; color: white;">CH₄ + 2O₂ → CO₂ + 2H₂O</div>
+                <p><strong>✅ C:</strong> 1 = 1 &nbsp;&nbsp; <strong>✅ H:</strong> 4 = 4 &nbsp;&nbsp; <strong>✅ O:</strong> 4 = 4</p>
+            </div>
+        </div>
+
+        <!-- Sección 4: Practica tú mismo -->
+        <div class="section">
+            <h2>🎯 ¡Practica tú mismo!</h2>
+            <p>Coloca los coeficientes correctos para ajustar las siguientes reacciones:</p>
+
+            <!-- Ejercicio 1 -->
+            <div class="exercise">
+                <h3>Ejercicio 1: Síntesis del amoniaco</h3>
+                <div class="reaction" id="reaccion1">
+                    <input type="number" id="coef1_1" min="1" max="10" value=""> N₂ + 
+                    <input type="number" id="coef1_2" min="1" max="10" value=""> H₂ → 
+                    <input type="number" id="coef1_3" min="1" max="10" value=""> NH₃
+                </div>
+                <button onclick="verificarEjercicio1()">Comprobar</button>
+                <button onclick="resetearEjercicio1()">Reiniciar</button>
+                <div id="feedback1" class="feedback"></div>
+            </div>
+
+            <!-- Ejercicio 2 -->
+            <div class="exercise">
+                <h3>Ejercicio 2: Combustión del propano</h3>
+                <div class="reaction" id="reaccion2">
+                    <input type="number" id="coef2_1" min="1" max="10" value=""> C₃H₈ + 
+                    <input type="number" id="coef2_2" min="1" max="10" value=""> O₂ → 
+                    <input type="number" id="coef2_3" min="1" max="10" value=""> CO₂ + 
+                    <input type="number" id="coef2_4" min="1" max="10" value=""> H₂O
+                </div>
+                <button onclick="verificarEjercicio2()">Comprobar</button>
+                <button onclick="resetearEjercicio2()">Reiniciar</button>
+                <div id="feedback2" class="feedback"></div>
+            </div>
+
+            <!-- Ejercicio 3 -->
+            <div class="exercise">
+                <h3>Ejercicio 3: Neutralización ácido-base</h3>
+                <div class="reaction" id="reaccion3">
+                    <input type="number" id="coef3_1" min="1" max="10" value=""> HCl + 
+                    <input type="number" id="coef3_2" min="1" max="10" value=""> Ca(OH)₂ → 
+                    <input type="number" id="coef3_3" min="1" max="10" value=""> CaCl₂ + 
+                    <input type="number" id="coef3_4" min="1" max="10" value=""> H₂O
+                </div>
+                <button onclick="verificarEjercicio3()">Comprobar</button>
+                <button onclick="resetearEjercicio3()">Reiniciar</button>
+                <div id="feedback3" class="feedback"></div>
+            </div>
+
+            <!-- Ejercicio 4 -->
+            <div class="exercise">
+                <h3>Ejercicio 4: Descomposición térmica</h3>
+                <div class="reaction" id="reaccion4">
+                    <input type="number" id="coef4_1" min="1" max="10" value=""> KClO₃ → 
+                    <input type="number" id="coef4_2" min="1" max="10" value=""> KCl + 
+                    <input type="number" id="coef4_3" min="1" max="10" value=""> O₂
+                </div>
+                <button onclick="verificarEjercicio4()">Comprobar</button>
+                <button onclick="resetearEjercicio4()">Reiniciar</button>
+                <div id="feedback4" class="feedback"></div>
+            </div>
+        </div>
+
+        <!-- Sección 5: Más recursos -->
+        <div class="section">
+            <h2>📚 Tipos comunes de reacciones</h2>
+            
+            <h3>1. Síntesis o combinación</h3>
+            <div class="reaction">A + B → AB</div>
+            <p>Dos o más sustancias se combinan para formar un compuesto más complejo.</p>
+            <p><em>Ejemplo:</em> 2Na + Cl₂ → 2NaCl</p>
+
+            <h3>2. Descomposición</h3>
+            <div class="reaction">AB → A + B</div>
+            <p>Un compuesto se divide en dos o más sustancias más simples.</p>
+            <p><em>Ejemplo:</em> 2H₂O → 2H₂ + O₂</p>
+
+            <h3>3. Combustión</h3>
+            <div class="reaction">Combustible + O₂ → CO₂ + H₂O</div>
+            <p>Un compuesto reacciona con oxígeno liberando energía.</p>
+            <p><em>Ejemplo:</em> CH₄ + 2O₂ → CO₂ + 2H₂O</p>
+
+            <h3>4. Sustitución o desplazamiento</h3>
+            <div class="reaction">A + BC → AC + B</div>
+            <p>Un elemento desplaza a otro en un compuesto.</p>
+            <p><em>Ejemplo:</em> Zn + 2HCl → ZnCl₂ + H₂</p>
+
+            <h3>5. Neutralización (ácido-base)</h3>
+            <div class="reaction">Ácido + Base → Sal + Agua</div>
+            <p>Un ácido reacciona con una base para formar sal y agua.</p>
+            <p><em>Ejemplo:</em> HCl + NaOH → NaCl + H₂O</p>
+        </div>
+
+        <footer>
+            <p>🧪 Página creada para estudiantes de 4º de la ESO</p>
+            <p>¡Sigue practicando y dominarás el ajuste de reacciones químicas!</p>
+        </footer>
+    </div>
+
+    <script>
+        // Ejercicio 1: N₂ + H₂ → NH₃ (Solución: 1, 3, 2)
+        function verificarEjercicio1() {
+            const c1 = parseInt(document.getElementById('coef1_1').value) || 1;
+            const c2 = parseInt(document.getElementById('coef1_2').value) || 1;
+            const c3 = parseInt(document.getElementById('coef1_3').value) || 1;
+            
+            const feedback = document.getElementById('feedback1');
+            
+            // Verificar: N₂ + 3H₂ → 2NH₃
+            if (c1 === 1 && c2 === 3 && c3 === 2) {
+                feedback.className = 'feedback correct';
+                feedback.innerHTML = '✅ ¡Correcto! N₂ + 3H₂ → 2NH₃<br>Reactivos: 2N, 6H | Productos: 2N, 6H';
+            } else {
+                feedback.className = 'feedback incorrect';
+                const nReactivos = c1 * 2;
+                const nProductos = c3 * 1;
+                const hReactivos = c2 * 2;
+                const hProductos = c3 * 3;
+                feedback.innerHTML = `❌ Inténtalo de nuevo.<br>N: ${nReactivos} ≠ ${nProductos} | H: ${hReactivos} ≠ ${hProductos}`;
+            }
+        }
+
+        function resetearEjercicio1() {
+            document.getElementById('coef1_1').value = '';
+            document.getElementById('coef1_2').value = '';
+            document.getElementById('coef1_3').value = '';
+            document.getElementById('feedback1').className = 'feedback';
+            document.getElementById('feedback1').innerHTML = '';
+        }
+
+        // Ejercicio 2: C₃H₈ + O₂ → CO₂ + H₂O (Solución: 1, 5, 3, 4)
+        function verificarEjercicio2() {
+            const c1 = parseInt(document.getElementById('coef2_1').value) || 1;
+            const c2 = parseInt(document.getElementById('coef2_2').value) || 1;
+            const c3 = parseInt(document.getElementById('coef2_3').value) || 1;
+            const c4 = parseInt(document.getElementById('coef2_4').value) || 1;
+            
+            const feedback = document.getElementById('feedback2');
+            
+            // Verificar: C₃H₈ + 5O₂ → 3CO₂ + 4H₂O
+            if (c1 === 1 && c2 === 5 && c3 === 3 && c4 === 4) {
+                feedback.className = 'feedback correct';
+                feedback.innerHTML = '✅ ¡Excelente! C₃H₈ + 5O₂ → 3CO₂ + 4H₂O<br>Reactivos: 3C, 8H, 10O | Productos: 3C, 8H, 10O';
+            } else {
+                feedback.className = 'feedback incorrect';
+                const cReactivos = c1 * 3;
+                const cProductos = c3 * 1;
+                const hReactivos = c1 * 8;
+                const hProductos = c4 * 2;
+                const oReactivos = c2 * 2;
+                const oProductos = c3 * 2 + c4 * 1;
+                feedback.innerHTML = `❌ Revisa tus cálculos.<br>C: ${cReactivos} ≠ ${cProductos} | H: ${hReactivos} ≠ ${hProductos} | O: ${oReactivos} ≠ ${oProductos}`;
+            }
+        }
+
+        function resetearEjercicio2() {
+            document.getElementById('coef2_1').value = '';
+            document.getElementById('coef2_2').value = '';
+            document.getElementById('coef2_3').value = '';
+            document.getElementById('coef2_4').value = '';
+            document.getElementById('feedback2').className = 'feedback';
+            document.getElementById('feedback2').innerHTML = '';
+        }
+
+        // Ejercicio 3: HCl + Ca(OH)₂ → CaCl₂ + H₂O (Solución: 2, 1, 1, 2)
+        function verificarEjercicio3() {
+            const c1 = parseInt(document.getElementById('coef3_1').value) || 1;
+            const c2 = parseInt(document.getElementById('coef3_2').value) || 1;
+            const c3 = parseInt(document.getElementById('coef3_3').value) || 1;
+            const c4 = parseInt(document.getElementById('coef3_4').value) || 1;
+            
+            const feedback = document.getElementById('feedback3');
+            
+            // Verificar: 2HCl + Ca(OH)₂ → CaCl₂ + 2H₂O
+            if (c1 === 2 && c2 === 1 && c3 === 1 && c4 === 2) {
+                feedback.className = 'feedback correct';
+                feedback.innerHTML = '✅ ¡Muy bien! 2HCl + Ca(OH)₂ → CaCl₂ + 2H₂O<br>Reactivos: 2H+2H=4H, 2Cl, 1Ca, 2O | Productos: 1Ca, 2Cl, 4H, 2O';
+            } else {
+                feedback.className = 'feedback incorrect';
+                const hReactivos = c1 * 1 + c2 * 2;
+                const hProductos = c4 * 2;
+                const clReactivos = c1 * 1;
+                const clProductos = c3 * 2;
+                const caReactivos = c2 * 1;
+                const caProductos = c3 * 1;
+                const oReactivos = c2 * 2;
+                const oProductos = c4 * 1;
+                feedback.innerHTML = `❌ Casi... sigue intentando.<br>H: ${hReactivos} ≠ ${hProductos} | Cl: ${clReactivos} ≠ ${clProductos} | Ca: ${caReactivos} ≠ ${caProductos} | O: ${oReactivos} ≠ ${oProductos}`;
+            }
+        }
+
+        function resetearEjercicio3() {
+            document.getElementById('coef3_1').value = '';
+            document.getElementById('coef3_2').value = '';
+            document.getElementById('coef3_3').value = '';
+            document.getElementById('coef3_4').value = '';
+            document.getElementById('feedback3').className = 'feedback';
+            document.getElementById('feedback3').innerHTML = '';
+        }
+
+        // Ejercicio 4: KClO₃ → KCl + O₂ (Solución: 2, 2, 3)
+        function verificarEjercicio4() {
+            const c1 = parseInt(document.getElementById('coef4_1').value) || 1;
+            const c2 = parseInt(document.getElementById('coef4_2').value) || 1;
+            const c3 = parseInt(document.getElementById('coef4_3').value) || 1;
+            
+            const feedback = document.getElementById('feedback4');
+            
+            // Verificar: 2KClO₃ → 2KCl + 3O₂
+            if (c1 === 2 && c2 === 2 && c3 === 3) {
+                feedback.className = 'feedback correct';
+                feedback.innerHTML = '✅ ¡Perfecto! 2KClO₃ → 2KCl + 3O₂<br>Reactivos: 2K, 2Cl, 6O | Productos: 2K, 2Cl, 6O';
+            } else {
+                feedback.className = 'feedback incorrect';
+                const kReactivos = c1 * 1;
+                const kProductos = c2 * 1;
+                const clReactivos = c1 * 1;
+                const clProductos = c2 * 1;
+                const oReactivos = c1 * 3;
+                const oProductos = c3 * 2;
+                feedback.innerHTML = `❌ No está equilibrada.<br>K: ${kReactivos} ≠ ${kProductos} | Cl: ${clReactivos} ≠ ${clProductos} | O: ${oReactivos} ≠ ${oProductos}`;
+            }
+        }
+
+        function resetearEjercicio4() {
+            document.getElementById('coef4_1').value = '';
+            document.getElementById('coef4_2').value = '';
+            document.getElementById('coef4_3').value = '';
+            document.getElementById('feedback4').className = 'feedback';
+            document.getElementById('feedback4').innerHTML = '';
+        }
+    </script>
+</body>
+</html>
